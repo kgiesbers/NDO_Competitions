@@ -10,7 +10,7 @@ def get_competition_links():
     competition_links = {}
 
     for link in soup.find_all("a", href=True):
-        full_url = urljoin(BASE_URL, link["href"])
+        full_url = BASE_URL + link["href"] + "/"
         competition_links[full_url] = full_url
 
     return competition_links

@@ -1,1 +1,1 @@
-BASE_URL = "https://scrutineering.org/NDO"
+BASE_URL = "https://scrutineering.org/NDO/"

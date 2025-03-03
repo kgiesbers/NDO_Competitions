@@ -10,12 +10,10 @@ def get_class_links(competition_url):
     class_links = {}
 
     for link in soup.find_all("a", href=True):
-        full_url = urljoin(competition_url, link["href"])
+        full_url = competition_url + link["href"]
         if full_url.startswith("http://www.TopTurnier.de"):
             continue
-        class_name = link.text.strip()
-        if class_name:
-            class_links[class_name] = {}
+        class_links[full_url] = {}
 
     return class_links
 
