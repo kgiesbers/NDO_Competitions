@@ -1,6 +1,6 @@
 import os
 import sys
 
-import scraper.competitionLinks
+from scraper.competition_links import get_competition_links
 
-getCompetitionLinks()
+print(get_competition_links())

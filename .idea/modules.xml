@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../NDOscraper/.idea/NDOscraper.iml" filepath="$PROJECT_DIR$/../NDOscraper/.idea/NDOscraper.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/NDOscraperv2.iml" filepath="$PROJECT_DIR$/.idea/NDOscraperv2.iml" />
     </modules>
   </component>
