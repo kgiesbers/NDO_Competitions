@@ -1,8 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
-from scraper.competition_links import get_competition_links
-
 
 def get_class_links(competition_url):
     page = requests.get(competition_url)
@@ -10,19 +7,11 @@ def get_class_links(competition_url):
     class_links = {}
 
     for link in soup.find_all("a", href=True):
-        full_url = competition_url + link["href"]
-        if full_url.startswith("http://www.TopTurnier.de"):
+        if link["href"].startswith("http://www.TopTurnier.de"):
             continue
+        full_url = competition_url + link["href"]
         class_links[full_url] = {}
 
     return class_links
 
-def get_competition_classes():
-    competitions_with_classes = {}
-    competitions_links = get_competition_links()
 
-    for competition_url in competitions_links:
-        class_links = get_class_links(competition_url)
-        competitions_with_classes[competition_url] = class_links
-
-    return competitions_with_classes
