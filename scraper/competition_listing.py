@@ -20,25 +20,31 @@ def get_competition_listing(class_url):
         names = row.find("td", class_="td5")
 
         if place and number and names:
-            result = {
-                "place": place.get_text(strip=True),
-                "number": number.get_text(strip=True),
-                "names": names.get_text(strip=True)
-            }
+            place_text = place.get_text(strip=True).rstrip(".")
+            if place_text.isdigit():
+                result = {
+                    "place": place_text,
+                    "number": number.get_text(strip=True),
+                    "names": names.get_text(strip=True)
+                }
+            else:
+                continue
             listings.append(result)
         else:
             cells = row.find_all("td")
             if len(cells) >= 2:
-                place = cells[0].get_text(strip=True)
+                place = cells[0].get_text(strip=True).rstrip(".")
                 name_field = cells[1].get_text(strip=True)
 
                 names, number = extract_number_and_name(name_field)
-
-                result = {
-                    "place": place,
-                    "number": number,
-                    "names": names
-                }
+                if place.isdigit():
+                    result = {
+                        "place": place,
+                        "number": number,
+                        "names": names
+                    }
+                else:
+                    continue
                 listings.append(result)
     return listings if listings else "no results found"
 
