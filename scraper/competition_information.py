@@ -1,35 +1,28 @@
 from scraper.competition_links import get_competition_links
-from scraper.class_links import get_class_links
-from scraper.competition_listing import get_competition_listing
+from scraper.bracket_links import get_bracket_links
+from scraper.competition_listing import get_bracket_listing
 
 def get_competition_information():
-    competitions_with_classes = {}
+    competitions_with_brackets = {}
     competitions_links = get_competition_links()
 
-    for competition_url in competitions_links:
+    for competition_name, competition_url in competitions_links.items():
+        bracket_links = get_bracket_links(competition_url)
 
-        class_links = get_class_links(competition_url)
+        competitions_with_brackets[competition_name] = {
+            "competition_name": competition_name,
+            "competition_url": competition_url,
+            "brackets": {}
+        }
 
-        competitions_with_classes[competition_url] = {}
+        for bracket_name, bracket_url in bracket_links.items():
+            bracket_listing = get_bracket_listing(bracket_url)
 
-        for class_url in class_links:
-            class_listing = get_competition_listing(class_url)
+            competitions_with_brackets[competition_name]["brackets"][bracket_name] = {
+                "bracket_name": bracket_name,
+                "bracket_url": bracket_url,
+                "bracket_listing": bracket_listing
+            }
+    return competitions_with_brackets
 
-            competitions_with_classes[competition_url][class_url] = class_listing
 
-    return competitions_with_classes
-
-    # for i, competition_url in enumerate(competitions_links):
-    #     if i >= 1:
-    #         break
-    #
-    #     class_links = get_class_links(competition_url)
-    #
-    #     competitions_with_classes[competition_url] = {}
-    #
-    #     for class_url in class_links:
-    #         class_listing = get_competition_listing(class_url)
-    #
-    #         competitions_with_classes[competition_url][class_url] = class_listing
-    #
-    # return competitions_with_classes

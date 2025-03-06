@@ -3,11 +3,11 @@ import re
 from bs4 import BeautifulSoup
 
 
-def get_competition_listing(class_url):
-    new_url = class_url.replace("index.htm", "erg.htm")
+# Scrapes position, names and number from brackets.
+def get_bracket_listing(bracket_url):
+    new_url = bracket_url.replace("index.htm", "erg.htm")
     page = requests.get(new_url)
     soup = BeautifulSoup(page.content, "html.parser")
-    ranking_div = soup.find("div", id="t3")
     table = soup.find("table", class_="tab1")
     if not table:
         return "table not found"
@@ -48,6 +48,7 @@ def get_competition_listing(class_url):
                 listings.append(result)
     return listings if listings else "no results found"
 
+# Extracts number from name and returns both separately
 def extract_number_and_name(text):
     match = re.match(r"^(.*)\s+\((\d+)\)$", text)
     if match:
