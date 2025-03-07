@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 
 def get_bracket_links(competition_url):
+    """scrapes all urls from brackets given a competition url"""
+
     url_page = requests.get(competition_url)
     url_soup = BeautifulSoup(url_page.content, "html.parser")
     bracket_links = {}
@@ -16,8 +18,6 @@ def get_bracket_links(competition_url):
         name_url = bracket_url.replace("index.htm", "menu.htm")
         name_page = requests.get(name_url)
         name_soup = BeautifulSoup(name_page.content, "html.parser")
-
-
 
         # filter out edge case where scrape_data is inconsistent
         if bracket_url == competition_url + "index.htm":

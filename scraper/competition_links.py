@@ -4,6 +4,8 @@ from config import base_url
 
 
 def get_competition_links():
+    """scrapes all links(competitions) from base_url"""
+
     comp_page = requests.get(base_url)
     comp_soup = BeautifulSoup(comp_page.content, "html.parser")
     competitions = {}

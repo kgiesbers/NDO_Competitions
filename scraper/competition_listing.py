@@ -3,8 +3,9 @@ import re
 from bs4 import BeautifulSoup
 
 
-# Scrapes position, names and number from brackets.
 def get_bracket_listing(bracket_url):
+    """Scrapes the place, number and names of all competitors of a given bracket_url"""
+
     new_url = bracket_url.replace("index.htm", "erg.htm")
     page = requests.get(new_url)
     soup = BeautifulSoup(page.content, "html.parser")
@@ -48,8 +49,10 @@ def get_bracket_listing(bracket_url):
                 listings.append(result)
     return listings if listings else "no results found"
 
-# Extracts number from name and returns both separately
+
 def extract_number_and_name(text):
+    """splits number and name from 'John doe / Jane doe (123)' and returns both"""
+
     match = re.match(r"^(.*)\s+\((\d+)\)$", text)
     if match:
         names = match.group(1).strip()
