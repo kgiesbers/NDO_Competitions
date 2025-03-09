@@ -8,7 +8,6 @@ def get_bracket_links(competition_url):
     url_soup = BeautifulSoup(url_page.content, "html.parser")
     bracket_links = {}
 
-
     for url in url_soup.find_all("a", href=True):
 
         if url["href"].startswith("http://www.TopTurnier.de"):
