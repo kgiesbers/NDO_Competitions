@@ -12,8 +12,7 @@ def get_competition_information():
         bracket_links = get_bracket_links(competition_url)
 
         competitions_with_brackets[competition_name] = {
-            "competition_name": competition_name,
-            "competition_url": competition_url,
+            "url": competition_url,
             "brackets": {}
         }
 
@@ -21,9 +20,8 @@ def get_competition_information():
             bracket_listing = get_bracket_listing(bracket_url)
 
             competitions_with_brackets[competition_name]["brackets"][bracket_name] = {
-                "bracket_name": bracket_name,
-                "bracket_url": bracket_url,
-                "bracket_listing": bracket_listing
+                "url": bracket_url,
+                "listing": bracket_listing
             }
     return competitions_with_brackets
 

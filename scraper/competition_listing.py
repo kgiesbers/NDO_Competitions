@@ -26,7 +26,7 @@ def get_bracket_listing(bracket_url):
                 result = {
                     "place": place_text,
                     "number": number.get_text(strip=True),
-                    "names": names.get_text(strip=True)
+                    "couple": names.get_text(strip=True)
                 }
             else:
                 continue
@@ -42,7 +42,7 @@ def get_bracket_listing(bracket_url):
                     result = {
                         "place": place,
                         "number": number,
-                        "names": names
+                        "couple": names
                     }
                 else:
                     continue
