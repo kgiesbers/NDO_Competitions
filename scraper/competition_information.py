@@ -2,8 +2,9 @@ from scraper.competition_links import get_competition_links
 from scraper.bracket_links import get_bracket_links
 from scraper.competition_listing import get_bracket_listing
 
+
 def get_competition_information():
-    """Returns a structured dictionary of all scraped data_access"""
+    """Returns a structured dictionary of all scraped data"""
 
     competitions_with_brackets = {}
     competitions_links = get_competition_links()

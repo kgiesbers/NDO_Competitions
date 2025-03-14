@@ -5,6 +5,9 @@ class Listing:
         self.couple = couple
         self.validate()
 
+    def __repr__(self):
+        return f"place {self.place}, number {self.number}, couple: {repr(self.couple)}"
+
     def validate(self):
         if not isinstance(self.place, (int, str)) or not str(self.place).isdigit():
             raise ValueError("place must be a non-empty numeric value.")

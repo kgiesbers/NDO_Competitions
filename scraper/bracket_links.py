@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+
 def get_bracket_links(competition_url):
     """scrapes all urls from brackets given a competition url"""
 

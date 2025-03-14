@@ -8,11 +8,8 @@ class Competition:
         self.brackets = brackets
         self.validate()
 
-    def add_bracket(self, bracket):
-        self.brackets[bracket.bracket_id] = bracket
-
-    def get_bracket(self, bracket_id):
-        return self.brackets.get(bracket_id, None)
+    def __repr__ (self):
+        return f"name: {repr(self.name)}, url: {repr(self.url)}"
 
     def validate(self):
         """Validates fields of object. name should be string, url should be valid and listing should be valid"""
@@ -25,8 +22,6 @@ class Competition:
         if not isinstance(self.url, str) or not re.match(url_pattern, self.url):
             raise ValueError(f"Invalid bracket_url: {self.url} is not a valid URL.")
 
-        for bracket in self.brackets:
-            if not isinstance(bracket, dict):
-                raise ValueError("Each bracket must be a dictionary.")
+
 
         return True  # If all checks pass

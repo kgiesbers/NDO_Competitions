@@ -2,20 +2,16 @@ import os
 import sys
 import json
 
+import data_access.database.scraped_file
 from data_layer.models.Bracket import Bracket
 from scraper.competition_information import get_competition_information
 from scraper.competition_listing import extract_number_and_name
+from data_access.database.scraped_file import data
+from data_layer.utils.create_competition_list import create_competition_data
 
-print(json.dumps(get_competition_information(), indent=4, ensure_ascii=False))
-# print(extract_number_and_name.__doc__)
+scraped_data = data
+# print(json.dumps(scraped_data, indent=4))
+competition_object_list = create_competition_data(scraped_data)
 
-# listing = {
-#                         "place": "1",
-#                         "number": "22",
-#                         "names": "Marcel Landman  /  Linda Landman"
-#                     }
-
-
-
-# b1 = Bracket("Senioren 35+ Ballroom", "https://scrutineering.org/NDO/20250209/2-senioren35pballroom/index.htm", listing)
-# print(b1.name, b1.url, b1,listing)
+for competition in competition_object_list:
+    print(competition)

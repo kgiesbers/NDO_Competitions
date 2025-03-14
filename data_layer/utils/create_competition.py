@@ -1,15 +1,11 @@
 from data_layer.models.Competition import Competition
 
 
-def create_competition(competition_data, brackets):
-    competitions = ()
+def create_competition(name, url, brackets):
 
-    for competition_name, data in competition_data.items():
-        competition_object = Competition(
-            name=competition_name,
-            url=competition_data["url"],
-            brackets=brackets
-        )
-        competitions.append(competition_object)
-
-    return competitions
+    competition_object = Competition(
+        name=name,
+        url=url,
+        brackets=brackets
+    )
+    return competition_object

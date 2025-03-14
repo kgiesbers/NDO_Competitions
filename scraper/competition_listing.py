@@ -13,7 +13,7 @@ def get_bracket_listing(bracket_url):
     if not table:
         return "table not found"
 
-    listings = []
+    listings = {}
 
     for row in table.find_all("tr")[2:]:
         place = row.find("td", class_="td3c")
@@ -23,14 +23,13 @@ def get_bracket_listing(bracket_url):
         if place and number and names:
             place_text = place.get_text(strip=True).rstrip(".")
             if place_text.isdigit():
-                result = {
-                    "place": place_text,
+                listings[place_text] = {
                     "number": number.get_text(strip=True),
                     "couple": names.get_text(strip=True)
                 }
             else:
                 continue
-            listings.append(result)
+
         else:
             cells = row.find_all("td")
             if len(cells) >= 2:
@@ -39,21 +38,20 @@ def get_bracket_listing(bracket_url):
 
                 names, number = extract_number_and_name(name_field)
                 if place.isdigit():
-                    result = {
-                        "place": place,
+                    listings[place] = {
                         "number": number,
                         "couple": names
                     }
                 else:
                     continue
-                listings.append(result)
+
     return listings if listings else "no results found"
 
 
 def extract_number_and_name(text):
     """splits number and name from 'John doe / Jane doe (123)' and returns both"""
 
-    match = re.match(r"^(.*)\s+\((\d+)\)$", text)
+    match = re.match(r"^(.*)\s+\((\d+)\)(?:\s*\(.*\))?$", text)
     if match:
         names = match.group(1).strip()
         number = match.group(2)

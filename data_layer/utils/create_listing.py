@@ -1,15 +1,11 @@
 from data_layer.models.Listing import Listing
 
 
-def create_listing(listing_data):
-    listing = []
+def create_listing(place, number, couple):
 
-    for data in listing_data:
-        listing_object = Listing(
-            place=listing_data["place"],
-            number=listing_data["number"],
-            couple=listing_data["couple"]
-        )
-        listing.append(listing_object)
-
-    return listing
+    listing_object = Listing(
+        place= place,
+        number= number,
+        couple= couple
+    )
+    return listing_object
