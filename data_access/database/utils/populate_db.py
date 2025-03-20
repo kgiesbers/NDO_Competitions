@@ -1,7 +1,15 @@
-from data_access.database.config import *
+from data_access.database.config import database_url
+from data_access.database_models.Competition import Competition
+from data_access.database_models.Bracket import Bracket
+from data_access.database_models.Listing import Listing
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
 
 
 def populate_database(data):
+    engine = create_engine(database_url)
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
     for competition_data in data:
 
@@ -56,3 +64,4 @@ def populate_database(data):
                     session.flush()
 
     session.commit()
+    session.close()

@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from config import base_url
+from scraper.config import base_url
 
 
 def get_competition_links():
