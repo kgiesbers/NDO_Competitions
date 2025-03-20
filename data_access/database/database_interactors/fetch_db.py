@@ -1,10 +1,10 @@
-from data_access.database.config import database_url
+from data_access.database.database_config import database_url
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from data_access.database_models.Competition import Competition
+from data_access.schemas.Competition import Competition
 # These are actually used
-from data_access.database_models.Bracket import Bracket
-from data_access.database_models.Listing import Listing
+from data_access.schemas.Bracket import Bracket
+from data_access.schemas.Listing import Listing
 # These are actually used
 
 

@@ -1,4 +1,4 @@
-from data_layer.models.Bracket import Bracket
+from data_layer.dto.Bracket import Bracket
 
 
 def create_bracket(name, url, listing):

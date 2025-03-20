@@ -1,4 +1,4 @@
-from data_layer.models.Listing import Listing
+from data_layer.dto.Listing import Listing
 
 
 def create_listing(place, number, couple):

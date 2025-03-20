@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from data_access.database_models.base import Base
+from data_access.schemas.base import Base
 
 
 class Listing(Base):

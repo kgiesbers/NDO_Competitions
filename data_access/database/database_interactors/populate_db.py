@@ -1,7 +1,7 @@
-from data_access.database.config import database_url
-from data_access.database_models.Competition import Competition
-from data_access.database_models.Bracket import Bracket
-from data_access.database_models.Listing import Listing
+from data_access.database.database_config import database_url
+from data_access.schemas.Competition import Competition
+from data_access.schemas.Bracket import Bracket
+from data_access.schemas.Listing import Listing
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
