@@ -10,6 +10,7 @@ class Bracket:
 
     def __repr__(self):
         return f"name: {repr(self.name)}, url: {repr(self.url)}"
+
     def validate(self):
         """Validates fields of object. name should be string, url should be valid and listing should be valid"""
         # Validate bracket_name: should be a non-empty string
