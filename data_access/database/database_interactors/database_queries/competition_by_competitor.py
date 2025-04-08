@@ -6,13 +6,13 @@ from data_access.schemas.Competition import Competition
 from data_access.schemas.Bracket import Bracket
 
 
-def competition_competitor(competitor):
+def competition_by_competitor(competitor):
     engine = create_engine(database_url)
     Session = sessionmaker(bind=engine)
     session = Session()
 
     competitions = (
-        session.query(Competition.name, Competition.url, Bracket.name, Bracket.url, Listing)
+        session.query(Competition, Bracket, Listing)
         .join(Competition.brackets)
         .join(Bracket.listings)
         .filter(Listing.couple.contains(competitor))
@@ -20,4 +20,12 @@ def competition_competitor(competitor):
         .all()
     )
 
-    return competitions
+    competitions_dict = []
+    for competition, bracket, listing in competitions:
+        competitions_dict.append({
+            "competition": competition.to_dict(),
+            "bracket": bracket.to_dict(),
+            "listing": listing.to_dict()
+        })
+
+    return competitions_dict
