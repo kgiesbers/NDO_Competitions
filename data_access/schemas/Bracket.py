@@ -14,3 +14,10 @@ class Bracket(Base):
 
     def __repr__(self):
         return f"place='{str(self.name)}', number='{self.url}'"
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "url": self.url,
+        }

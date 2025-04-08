@@ -14,3 +14,11 @@ class Listing(Base):
 
     def __repr__(self):
         return f"place='{str(self.place)}', number='{self.number}'"
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "place": self.place,
+            "number": self.number,
+            "competitor_names": self.couple
+        }
