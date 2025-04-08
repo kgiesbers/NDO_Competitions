@@ -11,3 +11,6 @@ class Bracket(Base):
     url = Column(String, unique=True, nullable=False)
     competition = relationship("Competition", back_populates="brackets")
     listings = relationship("Listing", back_populates="bracket")
+
+    def __repr__(self):
+        return f"place='{str(self.name)}', number='{self.url}'"

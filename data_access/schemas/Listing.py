@@ -11,3 +11,6 @@ class Listing(Base):
     number = Column(String, nullable=False)
     couple = Column(String, nullable=False)
     bracket = relationship("Bracket", back_populates="listings")
+
+    def __repr__(self):
+        return f"place='{str(self.place)}', number='{self.number}'"
