@@ -11,7 +11,7 @@ def populate_database(data):
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for competition_name, competition_data in data.items():
+    for competition_name, competition_data in reversed(data.items()):
 
         # Check if competition exists, otherwise create it
         competition = session.query(Competition).filter_by(
