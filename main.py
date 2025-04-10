@@ -4,7 +4,7 @@ from data_access.database.database_interactors.database_helpers.fetch_db import 
 from data_access.database.database_interactors.database_helpers.create_db import create_database_framework
 
 
-# create_database_framework()
-# # competition_data = get_competition_information()
-# populate_database(competition_data)
+create_database_framework()
+competition_data = get_competition_information()
+populate_database(competition_data)
 fetch_all_data()
