@@ -24,8 +24,8 @@ pip install fastapi uvicorn sqlalchemy beautifulsoup4
 2. Start the API server:
   - Open your terminal and run: uvicorn API.main:app --reload
   
-  This will run the API server locally on http://localhost:8000
-  http://localhost:8000/docs will show you all end-points currently accessible
+This will run the API server locally on http://localhost:8000
+http://localhost:8000/docs will show you all end-points currently accessible
   
 3. Go to http://localhost:8000/competition_by_competitor/{competitor_name}
   This will show you all competitions the provided competitor has competed in.
