@@ -29,7 +29,7 @@ http://localhost:8000/docs will show you all end-points currently accessible
   
 3. Go to http://localhost:8000/competition_by_competitor/{competitor_name}
   This will show you all competitions the provided competitor has competed in.
-  The parameter {competitor_name} is not case-sensetive.
+  The parameter {competitor_name} is not case-sensitive.
 
 For example, http://localhost:8000/competition_by_competitor/kelian will contain this result in JSON format:
 
