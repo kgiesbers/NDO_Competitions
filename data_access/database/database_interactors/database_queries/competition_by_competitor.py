@@ -7,6 +7,7 @@ from data_access.schemas.Bracket import Bracket
 
 
 def competition_by_competitor(competitor):
+    """Queries the database bases on provided name"""
     engine = create_engine(database_url)
     Session = sessionmaker(bind=engine)
     session = Session()

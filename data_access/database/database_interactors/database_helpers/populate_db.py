@@ -7,6 +7,7 @@ from sqlalchemy import create_engine
 
 
 def populate_database(data):
+    """Populates the database with provided data from scraper"""
     engine = create_engine(database_url)
     Session = sessionmaker(bind=engine)
     session = Session()
