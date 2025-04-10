@@ -8,6 +8,3 @@ router = APIRouter()
 @router.get("/competition_by_competitor/{competitor_name}")
 def read_competition_by_competitor(competitor_name: str):
     return competition_by_competitor(competitor_name)
-
-
-
