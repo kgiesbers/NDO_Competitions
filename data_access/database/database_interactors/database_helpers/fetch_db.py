@@ -2,10 +2,6 @@ from data_access.database.database_config import database_url
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from data_access.schemas.Competition import Competition
-# These are actually used
-from data_access.schemas.Bracket import Bracket
-from data_access.schemas.Listing import Listing
-# These are actually used
 
 
 def fetch_all_data():
