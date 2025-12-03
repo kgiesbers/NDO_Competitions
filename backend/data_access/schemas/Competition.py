@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from data_access.schemas.base import Base
+from backend.data_access.schemas.base import Base
 
 
 class Competition(Base):

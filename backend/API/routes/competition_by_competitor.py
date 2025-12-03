@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from data_access.database.database_interactors.database_queries.competition_by_competitor import competition_by_competitor
+from backend.data_access.database.database_interactors.database_queries.competition_by_competitor import competition_by_competitor
 
 
 router = APIRouter()

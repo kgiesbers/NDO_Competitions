@@ -1,9 +1,9 @@
-from data_access.database.database_config import database_url
+from backend.data_access.database.database_config import database_url
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from data_access.schemas.Competition import Competition
-
-
+from backend.data_access.schemas.Competition import Competition
+from backend.data_access.schemas.Bracket import Bracket
+from backend.data_access.schemas.Listing import Listing
 def fetch_all_data():
     """Queries all data from the database"""
     engine = create_engine(database_url)

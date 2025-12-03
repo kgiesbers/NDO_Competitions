@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from API.routes.competition_by_competitor import router
+from .routes.competition_by_competitor import router
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
