@@ -22,7 +22,7 @@ pip install fastapi uvicorn sqlalchemy beautifulsoup4
   - Run main.py
 
 2. Start the API server:
-  - Open your terminal and run: uvicorn API.main:app --reload
+  - Open your terminal and run: uvicorn backend.API.main:app --reload
   
 This will run the API server locally on http://localhost:8000
 http://localhost:8000/docs will show you all end-points currently accessible
